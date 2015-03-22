@@ -10,7 +10,7 @@ To clean the data with default values simply call `run()` after loading the sour
 
 Two data.frames are created `clean_data` and `clean_data_mean`.
 
-In this case the data file has to be in `./UCI HAR Dataset` folder as the following sructure:
+In this case the data file default location is `./UCI HAR Dataset` (this can be set as base.folder in `run(base.folder)`). The base folder should have the following sructure:
 
     ./UCI HAR Dataset
               |---- activity_labels.txt
