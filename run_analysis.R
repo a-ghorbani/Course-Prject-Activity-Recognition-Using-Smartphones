@@ -1,7 +1,24 @@
 
-##################################################
-##    You will find the script at the bottom
-##################################################
+
+run  <- function(base.folder="./UCI HAR Dataset"){
+  ########################################################
+  ##    CLEAN DATA AND CALCULATE MEAN ANS WRITE TO FILE
+  ########################################################
+  
+  clean_data  <- uci_smartphone_data_wrangling(base.folder)
+  write.table(x = clean_data,
+              file = "clean_data.txt", 
+              row.name=FALSE)
+  
+  clean_data_mean  <- average_subject.activity(clean_data)
+  write.table(x = clean_data_mean,
+              file = "clean_data_mean.txt", 
+              row.name=FALSE)
+  
+  clean_data <<- clean_data
+  clean_data_mean <<- clean_data_mean
+  ########################################################
+}
 
 uci_smartphone_data_wrangling  <- function(base.folder){
   ######################################
@@ -47,9 +64,9 @@ uci_smartphone_data_wrangling  <- function(base.folder){
   ######################################
   pattern   <- "((mean)+)|((std)+)"
   col_names <- features$feature[
-                 grep(pattern = pattern, 
-                      x = features$feature,
-                      ignore.case = T)]
+    grep(pattern = pattern, 
+         x = features$feature,
+         ignore.case = T)]
   dat_set   <- dat_set[,col_names]
   
   ######################################
@@ -60,7 +77,7 @@ uci_smartphone_data_wrangling  <- function(base.folder){
   dat_act   <- merge(dat_act, activity_labels, by = "act.code")
   dat_act   <- dat_act[order(dat_act$id),c("act.code","act.label")]
   row.names(dat_act)  <-  NULL
-
+  
   ######################################
   #   Combine activity data set and 
   #   measurements
@@ -100,15 +117,3 @@ average_subject.activity  <- function(clean_data){
   
   return (dat_mean)
 }
-
-########################################################
-##    CLEAN DATA AND CALCULATE MEAN ANS WRITE TO FILE
-########################################################
-base.folder  <- "./UCI HAR Dataset"
-clean_data  <- uci_smartphone_data_wrangling(base.folder)
-clean_data_mean  <- average_subject.activity(clean_data)
-write.table(x = clean_data_mean,
-            file = "clean_data_mean.txt", 
-            row.name=FALSE)
-########################################################
-
