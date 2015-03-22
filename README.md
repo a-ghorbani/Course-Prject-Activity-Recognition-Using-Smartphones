@@ -1,7 +1,6 @@
 # A R script to clean Activity-Recognition data set
 
-In order to run `run_analysis.R` script has to be run.
-The file has three functions.
+In order to clean data the `run()` functin in `run_analysis.R` has to be used.
 
 To clean the data with default values simply call `run()` after loading the source file: 
 
@@ -10,7 +9,7 @@ To clean the data with default values simply call `run()` after loading the sour
 
 Two data.frames are created `clean_data` and `clean_data_mean`.
 
-In this case the data file default location is `./UCI HAR Dataset` (this can be set as base.folder in `run(base.folder)`). The base folder should have the following sructure:
+In this case the data file default location is `./UCI HAR Dataset` (this can be set as `base.folder` parameter in `run(base.folder)`). The base folder should have the following sructure:
 
     ./UCI HAR Dataset
               |---- activity_labels.txt
