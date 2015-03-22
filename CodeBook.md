@@ -14,4 +14,4 @@ The rest of the variables are described in `feature_info.txt` in the data set.
 
 NOTE: in these outputs only mean and stds are given.
 
-In `clean_data_mean` the values are mean of eahc variables for each activities and subjects.
+In `clean_data_mean` the values are mean of each variables for each activities and subjects.
