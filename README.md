@@ -8,7 +8,7 @@ To clean the data with default values simply call `run()` after loading the sour
     > source('run_analysis.R')
     > run()
 
-Two data are created `clean_data` and `clean_data_mean`.
+Two data.frames are created `clean_data` and `clean_data_mean`.
 
 In this case the data file has to be in `./UCI HAR Dataset` folder as the following sructure:
 
